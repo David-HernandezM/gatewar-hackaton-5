@@ -147,8 +147,9 @@ export class ContractService {
             const programResponse = await this.createProgram(factorySails, signer, initConfig);
 
             let tokenAddress: HexString;
-            if (programResponse.ProgramCreated) {
-                tokenAddress = programResponse.ProgramCreated.address as HexString;
+
+            if (programResponse.programCreated) {
+                tokenAddress = programResponse.programCreated.address as HexString;
             } else {
                 throw new Error('Program creation did not return expected response');
             }

@@ -189,7 +189,7 @@ export class ContractController {
                 mint_to
             };
 
-            const registeredTokenAddress: HexString | null = registered_token || null;
+            const registeredTokenAddress: HexString = registered_token || "0xd0f89cfd994c92bb743a5a69049609b796e2026e05318f7eef621a5e31df3d4b";
 
             const result = await ContractService.createProgramAndPool(
                 factorySails,
