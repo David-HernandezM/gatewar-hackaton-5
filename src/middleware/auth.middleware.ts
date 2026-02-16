@@ -39,20 +39,3 @@ export const authenticateApiKey = (
         });
     }
 };
-
-// export const validateClientIp = (allowedIps: string[]) => {
-//     return (req: Request, res: Response, next: NextFunction): void => {
-//         const clientIp = req.ip || req.connection.remoteAddress || '';
-
-//         if (!allowedIps.includes(clientIp)) {
-//             res.status(403).json({
-//                 success: false,
-//                 error: 'IP not allowed',
-//                 message: 'Your IP address is not authorized to access this resource'
-//             });
-//             return;
-//         }
-
-//         next();
-//     };
-// };

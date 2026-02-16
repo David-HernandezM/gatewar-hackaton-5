@@ -23,9 +23,8 @@ const createProgramSchema = z.object({
         .min(0, 'Decimals must be at least 0')
         .max(255, 'Decimals must not exceed 255'),
     
-    mint_amount: z.number()
-        .int('Mint amount must be an integer')
-        .min(100, 'Mint amount must be at least 100'),
+    mint_amount: z.string()
+        .regex(/^\d+$/, 'Mint amount must be a valid number string'),
     
     mint_to: z.string()
         .regex(/^0x[a-fA-F0-9]{64}$/, 'Mint to address must be a valid hex string')

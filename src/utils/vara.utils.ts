@@ -52,7 +52,7 @@ export interface VftInitConfig {
     symbol: string;
     decimals: number;
     admins: string[];
-    mint_amount: string;  
+    mint_amount: BigInt;  
     mint_to: string;      
 }
 

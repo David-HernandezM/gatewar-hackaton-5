@@ -19,7 +19,7 @@ export class ContractController {
                 name,
                 symbol,
                 decimals,
-                mint_amount,
+                mint_amount: BigInt(mint_amount),
                 mint_to
             };
 
@@ -185,7 +185,7 @@ export class ContractController {
                 name,
                 symbol,
                 decimals,
-                mint_amount,
+                mint_amount: BigInt(mint_amount),
                 mint_to
             };
 
