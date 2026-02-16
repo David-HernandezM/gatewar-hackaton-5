@@ -25,18 +25,18 @@ class Server {
         }));
         this.app.use(express_1.default.json());
         this.app.use(express_1.default.urlencoded({ extended: true }));
-        const limiter = (0, express_rate_limit_1.default)({
-            windowMs: constants_1.RATE_LIMIT_WINDOW_MS,
-            max: constants_1.RATE_LIMIT_MAX_REQUESTS,
-            message: {
-                success: false,
-                error: 'Too many requests',
-                message: 'Rate limit exceeded. Please try again later.'
-            },
-            standardHeaders: true,
-            legacyHeaders: false,
-        });
-        this.app.use('/api/', limiter);
+        // const limiter = (0, express_rate_limit_1.default)({
+        //     windowMs: constants_1.RATE_LIMIT_WINDOW_MS,
+        //     max: constants_1.RATE_LIMIT_MAX_REQUESTS,
+        //     message: {
+        //         success: false,
+        //         error: 'Too many requests',
+        //         message: 'Rate limit exceeded. Please try again later.'
+        //     },
+        //     standardHeaders: true,
+        //     legacyHeaders: false,
+        // });
+        // this.app.use('/api/', limiter);
         this.app.use((req, _res, next) => {
             const timestamp = new Date().toISOString();
             console.log(`[${timestamp}] ${req.method} ${req.path}`);

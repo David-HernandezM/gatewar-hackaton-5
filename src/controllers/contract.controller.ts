@@ -116,10 +116,8 @@ export class ContractController {
             const poolFactorySails = req.app.locals.poolFactorySails as Sails;
             const signer = req.app.locals.signer as KeyringPair;
 
-            // Determine which registered token to use
             let registeredTokenAddress: HexString | null = registered_token || null;
 
-            // Check if pair already exists
             if (registeredTokenAddress) {
                 const existingPair = await ContractService.getPairAddress(
                     poolFactorySails,
