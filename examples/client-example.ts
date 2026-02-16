@@ -2,7 +2,7 @@ import axios, { AxiosError } from 'axios';
 
 const API_URL = 'http://localhost:3000/api';
 const API_KEY = ''; 
-const TO_MINT = 1000000000000; 
+const TO_MINT = "1000000000000"; 
 const ADDRESS = "0x523dda1e177405c8d2a17b9fdb61e757f8b7a9fe01c281ff1329f5a38721a755"
 
 const client = axios.create({

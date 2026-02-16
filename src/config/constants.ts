@@ -22,9 +22,6 @@ export const PORT: number = parseInt(process.env.PORT || '3000', 10);
 export const API_KEY: string = process.env.API_KEY!;
 export const NODE_ENV: string = process.env.NODE_ENV || 'development';
 
-export const RATE_LIMIT_WINDOW_MS: number = parseInt(process.env.RATE_LIMIT_WINDOW_MS || '900000', 10);
-export const RATE_LIMIT_MAX_REQUESTS: number = parseInt(process.env.RATE_LIMIT_MAX_REQUESTS || '100', 10);
-
 export const FACTORY_IDL: string = `
 type InitConfigFactory = struct {
   code_id: code_id,

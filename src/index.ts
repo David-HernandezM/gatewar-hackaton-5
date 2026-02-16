@@ -1,7 +1,6 @@
 import express, { Express, Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
-import rateLimit from 'express-rate-limit';
 import { 
     NETWORK, 
     FACTORY_CONTRACT_ID,
@@ -12,8 +11,6 @@ import {
     WALLET_MNEMONIC,
     PORT,
     NODE_ENV,
-    RATE_LIMIT_WINDOW_MS,
-    RATE_LIMIT_MAX_REQUESTS
 } from './config/constants';
 import { 
     createGearApi, 
@@ -43,20 +40,6 @@ class Server {
 
         this.app.use(express.json());
         this.app.use(express.urlencoded({ extended: true }));
-
-        const limiter = rateLimit({
-            windowMs: RATE_LIMIT_WINDOW_MS,
-            max: RATE_LIMIT_MAX_REQUESTS,
-            message: {
-                success: false,
-                error: 'Too many requests',
-                message: 'Rate limit exceeded. Please try again later.'
-            },
-            standardHeaders: true,
-            legacyHeaders: false,
-        });
-
-        this.app.use('/api/', limiter);
 
         this.app.use((req: Request, _res: Response, next: NextFunction) => {
             const timestamp = new Date().toISOString();

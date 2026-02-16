@@ -55,7 +55,6 @@ export class ContractController {
             const poolFactorySails = req.app.locals.poolFactorySails as Sails;
             const signer = req.app.locals.signer as KeyringPair;
 
-            // Check if pair already exists
             const existingPair = await ContractService.getPairAddress(
                 poolFactorySails,
                 token_a as HexString,
@@ -71,11 +70,9 @@ export class ContractController {
                         alreadyExists: true
                     }
                 });
-                console.log("YA EXISTEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE")
                 return;
             }
 
-            console.log("Se mandara a crear el pool:");
             const pairAddress = await ContractService.createPool(
                 factorySails,
                 poolFactorySails,
@@ -83,8 +80,6 @@ export class ContractController {
                 token_a as HexString,
                 token_b as HexString
             );
-
-            console.log("YA SE CREO EL POOL!!!");
 
             res.status(200).json({
                 success: true,
